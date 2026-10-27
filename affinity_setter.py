@@ -65,11 +65,6 @@ class AffinitySetterApp:
             sorted_list = sorted(display_list, key=str.lower)
             self.combo_proc['values'] = sorted_list
             
-            if sorted_list:
-                # Pre-select DXMD if it's running
-                dxmd_match = next((item for item in sorted_list if "dxmd" in item.lower()), sorted_list[0])
-                self.combo_proc.set(dxmd_match)
-            
             self.lbl_status.config(text="Status: Process list refreshed.", fg="#6c757d")
         except Exception as e:
             self.lbl_status.config(text=f"Error refreshing list: {e}", fg="red")
